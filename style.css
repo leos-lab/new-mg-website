@@ -9,6 +9,7 @@ body {
   padding: 0;
   height: 100svh;
   overflow-y: auto; /* allow vertical scroll */
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch; /* smooth scroll on iOS */
   background-color: var(--bg-color);
   color: var(--text-color);
