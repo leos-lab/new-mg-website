@@ -1,6 +1,6 @@
 {
   "name": "Manchester Gents Countdown",
-  "short_name": "MG",
+  "short_name": "Manchester Gents",
   "start_url": "./index.html",
   "display": "standalone",
   "background_color": "#1c2837",
