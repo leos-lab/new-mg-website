@@ -7,6 +7,18 @@ fetch('manifest.json')
     manifest.background_color = config.backgroundColor;
     manifest.theme_color = config.backgroundColor;
 
+
+// Dynamically update OG description with event date
+const ogMeta = document.querySelector('meta[property="og:description"]');
+if (ogMeta && window.COUNTDOWN_CONFIG) {
+  const eventDate = new Date(window.COUNTDOWN_CONFIG.eventDate);
+  const formatted = eventDate.toLocaleDateString('en-GB', {
+    day: '2-digit', month: 'short', year: 'numeric'
+  }).toUpperCase().replace(/\./g, '');
+  ogMeta.setAttribute('content', `💌 Our next event is on ${formatted}`);
+}
+
+
     const blob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     let manifestLink = document.querySelector('link[rel="manifest"]');
