@@ -1,4 +1,12 @@
 
+
+// Dynamically update <meta name='theme-color'> to match backgroundColor
+const themeMeta = document.querySelector('meta[name="theme-color"]');
+if (themeMeta && window.COUNTDOWN_CONFIG) {
+  themeMeta.setAttribute('content', window.COUNTDOWN_CONFIG.backgroundColor);
+}
+
+
 // Dynamically update manifest background_color and theme_color
 fetch('manifest.json')
   .then(res => res.json())
