@@ -3,8 +3,8 @@
   "short_name": "Manchester Gents",
   "start_url": "./index.html",
   "display": "standalone",
-  "background_color": "#1c2837",
-  "theme_color": "#1c2837",
+  "background_color": "__DYNAMIC__",
+  "theme_color": "__DYNAMIC__",
   "icons": [
     {
       "src": "icons/apple-touch-icon-180x180.png",

@@ -1,3 +1,21 @@
+
+// Dynamically update manifest background_color and theme_color
+fetch('manifest.json')
+  .then(res => res.json())
+  .then(manifest => {
+    const config = window.COUNTDOWN_CONFIG;
+    manifest.background_color = config.backgroundColor;
+    manifest.theme_color = config.backgroundColor;
+
+    const blob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    let manifestLink = document.querySelector('link[rel="manifest"]');
+    if (manifestLink) {
+      manifestLink.setAttribute('href', url);
+    }
+  });
+
+
 function updateCSSVars(config) {
   document.documentElement.style.setProperty('--bg-color', config.backgroundColor);
   document.documentElement.style.setProperty('--text-color', config.textColor);
