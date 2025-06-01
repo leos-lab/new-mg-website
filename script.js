@@ -81,6 +81,39 @@ function startCountdown(config) {
 
 document.addEventListener("DOMContentLoaded", () => {
   const config = window.COUNTDOWN_CONFIG;
+
+  // Update theme color dynamically
+  const themeMeta = document.querySelector('meta[name="theme-color"]');
+  if (themeMeta) {
+    themeMeta.setAttribute('content', config.backgroundColor);
+  }
+
+  // Update manifest dynamically
+  fetch('manifest.json')
+    .then(res => res.json())
+    .then(manifest => {
+      manifest.background_color = config.backgroundColor;
+      manifest.theme_color = config.backgroundColor;
+
+      const blob = new Blob([JSON.stringify(manifest)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      let manifestLink = document.querySelector('link[rel="manifest"]');
+      if (manifestLink) {
+        manifestLink.setAttribute('href', url);
+      }
+    });
+
+  // Update OG description
+  const ogMeta = document.querySelector('meta[property="og:description"]');
+  if (ogMeta) {
+    const eventDate = new Date(config.eventDate);
+    const formatted = eventDate.toLocaleDateString('en-GB', {
+      day: '2-digit', month: 'short', year: 'numeric'
+    }).toUpperCase().replace(/\./g, '');
+    ogMeta.setAttribute('content', `💌 Our next event is on ${formatted}`);
+  }
+
+  const config = window.COUNTDOWN_CONFIG;
   updateCSSVars(config);
   insertLogo(`<svg fill="none" height="136" viewBox="0 0 340 136" width="340" xmlns="http://www.w3.org/2000/svg">
 <path d="M24.3011 7.69221C35.3525 32.5935 40.8419 73.6223 43.4668 102.503C32.4748 80.0087 17.3542 63.1689 11.0206 56.6528L24.754 39.9186L6.6018 26.7853L24.3011 7.69221ZM25.4355 0L0 27.4361L18.3896 40.7386L5.08491 56.9518C5.08491 56.9518 41.8686 91.4513 50.0884 135.518C50.0884 135.518 46.9557 39.9098 25.4355 0Z" fill="currentColor"/>
