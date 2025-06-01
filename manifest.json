@@ -1,0 +1,30 @@
+{
+  "name": "Manchester Gents Countdown",
+  "short_name": "MG",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#1c2837",
+  "theme_color": "#1c2837",
+  "icons": [
+    {
+      "src": "icons/apple-touch-icon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/apple-touch-icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/apple-touch-icon-114x114.png",
+      "sizes": "114x114",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/apple-touch-icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png"
+    }
+  ]
+}
