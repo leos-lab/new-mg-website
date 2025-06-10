@@ -86,3 +86,14 @@ body {
   background-color: var(--text-color);
   color: var(--bg-color);
 }
+
+a {
+  color: #ffc62d;
+}
+
+.profile-pic{
+  width: 200px;
+  height: 200px;
+  margin: 25px;
+  border-radius: 250px;
+}
