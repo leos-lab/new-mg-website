@@ -34,6 +34,12 @@ function updateCSSVars(config) {
   document.documentElement.style.setProperty('--logo-color', config.logoColor);
 }
 
+function insertLogo(svgContent) {
+  const container = document.getElementById("logo-container");
+  container.innerHTML = svgContent;
+  container.querySelector("svg").style.color = "var(--logo-color)";
+}
+
 function formatEventDate(isoString) {
   const date = new Date(isoString);
   const day = date.getDate().toString().padStart(2, '0');
